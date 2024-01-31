@@ -1,0 +1,11 @@
+const searchTest = (inputData) =>{
+    return () =>{
+        cy.visit('https://www.google.com/');
+        cy.get('#L2AGLb .QS5gu').click();
+        cy.get('textarea[type="Search"]').type(`${inputData.testData}{enter}`)
+        cy.get('h3',{timeout:5000}).should('contain', inputData.expectedResult)
+    }
+}
+
+it(`Perform search with text: Cypress`, searchTest({ "testData": "Cypress", "expectedResult": "JavaScript"}));
+it(`Perform search with text: webdriverio`, searchTest({ "testData": "webdriverio", "expectedResult": "Getting Started"}));
