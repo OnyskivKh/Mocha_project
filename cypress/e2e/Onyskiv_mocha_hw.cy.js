@@ -23,6 +23,7 @@ describe('Basic form', () => {
 
     after('Check box and click the button', () => {
         cy.get('span').contains('Check me out').click();
+        cy.get('div nb-checkbox span').eq(2).should('have.class', 'custom-checkbox checked');
         cy.get('div button.appearance-filled').eq(3).click();
 
     });
@@ -35,5 +36,3 @@ describe('Basic form', () => {
         });
     });
 });
-
-
